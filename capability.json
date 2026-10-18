@@ -1,0 +1,26 @@
+{
+  "source": "youtube_suggestions",
+  "name": "YouTube Autocomplete",
+  "sample": {
+    "query": "vector database",
+    "language": "en",
+    "region": "US"
+  },
+  "inputs": "query; language (default en); region (default US, two letters)",
+  "outputs": "results: autocomplete suggestion strings; usage.credits",
+  "limits": "Suggestions are not keyword volume or popularity measurements.",
+  "outputExample": {
+    "source": "youtube_suggestions",
+    "status": "done",
+    "results": [
+      [
+        "python for beginners"
+      ]
+    ],
+    "usage": {
+      "credits": 0.01
+    }
+  },
+  "repository": "flashdata-youtube-suggestions-action",
+  "action_name": "YouTube Autocomplete Topics - FlashData"
+}

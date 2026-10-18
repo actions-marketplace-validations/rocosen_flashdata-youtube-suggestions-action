@@ -1,0 +1,23 @@
+name: YouTube Autocomplete Topics - FlashData
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Export localized autocomplete phrases as a topic-expansion dataset for a
+          research workflow.
+        id: data
+        uses: rocosen/flashdata-youtube-suggestions-action@v0.1.0
+        with:
+          api-key: ${{ secrets.FLASHDATA_API_KEY }}
+          query: vector database
+          options-json: '{"language":"en","region":"US"}'
+      - name: Save data for the next pipeline stage
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-suggestions
+          path: ${{ steps.data.outputs.artifact-directory }}
+          retention-days: 7
